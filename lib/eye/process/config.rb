@@ -69,7 +69,8 @@ module Eye::Process::Config
 
   # is pid_file under Eye::Process control, or not
   def control_pid?
-    !!self[:daemonize]
+    return false if self[:control_pid] == false
+    self[:daemonize]
   end
 
 end
